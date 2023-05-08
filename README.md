@@ -48,7 +48,20 @@ A new S-Box can be obtained from a base S-Box using circular shift operations. T
 
 $g(x) = f((x - c) \mod 256)$
 
+## 🐣 Crossover Operator
+
+A new S-Box can be obtained from two base S-Boxes using a series of function compositions. These crossover operator preserves bijectivity.
+
+$h_1(x) = f(g(x))$
+
+$h_2(x) = g(f(x))$
+
+## 🔀 Random Operator
+
+A random feasible S-Box can be obtaied by shuffling an array.
+
 ## 📘 Refs
 
 1. Aboytes-González, J. A., Murguía, J. S., Mejía-Carlos, M., González-Aguilar, H., & Ramírez-Torres, M. T. (2018). Design of a strong S-box based on a matrix approach. In Nonlinear Dynamics (Vol. 94, Issue 3, pp. 2003–2012). Springer Science and Business Media LLC. https://doi.org/10.1007/s11071-018-4471-z
 2. Daemen, J., & Rijmen, V. (2020). The Design of Rijndael. In Information Security and Cryptography. Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-60769-5
+3. Soubervielle-Montalvo, C., Perez-Cham, O. E., Puente, C., Gonzalez-Galvan, E. J., Olague, G., Aguirre-Salado, C. A., Cuevas-Tello, J. C., & Ontanon-Garcia, L. J. (2022). Design of a Low-Power Embedded System Based on a SoC-FPGA and the Honeybee Search Algorithm for Real-Time Video Tracking. In Sensors (Vol. 22, Issue 3, p. 1280). MDPI AG. https://doi.org/10.3390/s22031280
