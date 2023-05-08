@@ -107,7 +107,7 @@ import random
 def rand():
     box = list(range(256))
     for i in range(256):
-        j = random.randint(i, 255)
+        j = random.randint(0, 255)
         box[i], box[j] = box[j], box[i]
     return box
 def mutation(f, c):
@@ -122,8 +122,8 @@ def fitness(f):
     return SBox(f).nonlinearity()
     
 # Define the size of the population and number of generations to run
-POPULATION_SIZE = 4
-NUM_GENERATIONS = 5
+POPULATION_SIZE = 256
+NUM_GENERATIONS = 30
 
 # Generate an initial population of S-box permutations
 population = [rand() for _ in range(POPULATION_SIZE)]
@@ -133,17 +133,25 @@ print('initial')
 for generation in range(NUM_GENERATIONS):
     # Evaluate the fitness of each S-box permutation
     fitness_scores = [fitness(s) for s in population]
-    print('gen ', generation)
 
     # Select the fittest S-box permutations to be parents
     parents = [population[i] for i in sorted(range(POPULATION_SIZE), key=lambda k: fitness_scores[k], reverse=True)[:int(POPULATION_SIZE/2)]]
 
     # Generate offspring by applying mutation and crossover to the parents
     offspring = []
-    while len(offspring) < POPULATION_SIZE - len(parents):
+    m = (POPULATION_SIZE - len(parents)) / 2
+    c = (POPULATION_SIZE - len(parents)) / 4
+    r = (POPULATION_SIZE - len(parents)) / 4
+    while len(offspring) < m:
+        parent1 = random.sample(parents, 1)
+        child = mutation(parent1[0], random.randint(0, 255))
+        offspring.append(child)
+    while len(offspring) < m + c:
         parent1, parent2 = random.sample(parents, 2)
         child = crossover(parent1, parent2)
-        child = mutation(child, random.randint(0, 255))
+        offspring.append(child)
+    while len(offspring) < m + c + r:
+        child = rand()
         offspring.append(child)
 
     # Combine parents and offspring to form the next generation
