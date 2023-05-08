@@ -97,7 +97,7 @@ def rand():
 box = SBox(rand())
 nl = box.nonlinearity()
 print('NL:', nl)
-
+```
 
 ## 🚧 Heuristic
 
