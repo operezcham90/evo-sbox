@@ -1,4 +1,4 @@
-## 🔀 Nonlinearity
+## 📈 Fitness
 
 Nonlinearity (NL) is an important indicator of the quality of S-Boxes.
 
