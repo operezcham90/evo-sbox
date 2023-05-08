@@ -46,7 +46,7 @@ Observations suggest that a higher NL results in a better S-Box. This relationsh
 
 A new S-Box can be obtained from a base S-Box using circular shift operations. These mutation operator preserves bijectivity.
 
-$g(x) = f((x - c) \mod 256)$
+$g(x) = f((x + c) \mod 256)$
 
 ## 🐣 Crossover Operator
 
