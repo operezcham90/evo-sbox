@@ -44,7 +44,7 @@ Observations suggest that a higher NL results in a better S-Box. This relationsh
 
 ## 🧬 Mutation Operator
 
-A new S-Box can be obtained from a base S-Box using circular shift operations. These mutation operator preserves bijectivity.
+A new S-Box can be obtained from a base S-Box using circular shift operations. This mutation operator preserves bijectivity.
 
 $g(x) = f((x + c) \mod 256)$
 
@@ -62,7 +62,7 @@ print('NL:', nl)
 
 ## 🐣 Crossover Operator
 
-A new S-Box can be obtained from two base S-Boxes using a series of function compositions. These crossover operator preserves bijectivity.
+A new S-Box can be obtained from two base S-Boxes using a series of function compositions. This crossover operator preserves bijectivity.
 
 $h_1(x) = f(g(x))$
 
