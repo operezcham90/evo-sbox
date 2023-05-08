@@ -120,6 +120,41 @@ def crossover(f, g):
     return h
 def fitness(f):
     return SBox(f).nonlinearity()
+    
+# Define the size of the population and number of generations to run
+POPULATION_SIZE = 10
+NUM_GENERATIONS = 5
+
+# Generate an initial population of S-box permutations
+population = [rand() for _ in range(POPULATION_SIZE)]
+
+# Iterate through each generation
+for generation in range(NUM_GENERATIONS):
+
+    # Evaluate the fitness of each S-box permutation
+    fitness_scores = [fitness(s) for s in population]
+
+    # Select the fittest S-box permutations to be parents
+    parents = [population[i] for i in sorted(range(POPULATION_SIZE), key=lambda k: fitness_scores[k], reverse=True)[:int(POPULATION_SIZE/2)]]
+
+    # Generate offspring by applying mutation and crossover to the parents
+    offspring = []
+    while len(offspring) < POPULATION_SIZE - len(parents):
+        parent1, parent2 = random.sample(parents, 2)
+        child = crossover(parent1, parent2)
+        child = mutation(child, random.randint(1, len(child)))
+        offspring.append(child)
+
+    # Combine parents and offspring to form the next generation
+    population = parents + offspring
+
+# Find the fittest S-box permutation in the final population
+fitness_scores = [fitness(s) for s in population]
+best_sbox = population[fitness_scores.index(max(fitness_scores))]
+
+# Print the fittest S-box permutation and its nonlinearity
+print("Best S-box: ", best_sbox)
+print("Nonlinearity: ", SBox(best_sbox).nonlinearity())
 ```
 
 ## 📘 Refs
