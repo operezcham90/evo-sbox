@@ -58,7 +58,7 @@ $h_2(x) = g(f(x))$
 
 ## 🔀 Random Operator
 
-A random feasible S-Box can be obtaied by shuffling an array.
+A random feasible S-Box can be obtained by shuffling an array.
 
 ## 📘 Refs
 
