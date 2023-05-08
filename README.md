@@ -1,4 +1,8 @@
-## 📈 Fitness
+## 🌌 Feasible Space
+
+The feasible space of S-Boxes is the space of bijective functions.
+
+## 📈 Fitness Function
 
 Nonlinearity (NL) is an important indicator of the quality of S-Boxes.
 
@@ -38,11 +42,11 @@ print('NL 2:', nl2)
 
 Observations suggest that a higher NL results in a better S-Box. This relationship can be utilized as a fitness function.
 
-## 🧬 Mutation
+## 🧬 Mutation Operator
 
-A new S-Box can be obtained from a base S-Box using circular shift operations. These operations preserve bijectivity.
+A new S-Box can be obtained from a base S-Box using circular shift operations. These mutation operator preserves bijectivity.
 
-$g\left(x\right) = f((256 - c + x) \text{mod} \ 256) = f((x - c) \text{mod} \ 256)$
+$g(x) = f((x - c) \mod 256)$
 
 ## 📘 Refs
 
