@@ -97,6 +97,29 @@ def rand():
 box = SBox(rand())
 nl = box.nonlinearity()
 print('NL:', nl)
+
+
+## 🚧 Heuristic
+
+```python
+from sage.crypto.sbox import SBox
+import random
+def rand():
+    box = list(range(256))
+    for i in range(256):
+        j = random.randint(i, 255)
+        box[i], box[j] = box[j], box[i]
+    return box
+def mutation(f, c):
+    c = c % len(f)
+    g = f[-c:] + f[:-c]
+    return g
+def crossover(f, g):
+    assert len(f) == len(g)
+    h = [f[g[i]] for i in range(len(f))]
+    return h
+def fitness(f):
+    return SBox(f).nonlinearity()
 ```
 
 ## 📘 Refs
